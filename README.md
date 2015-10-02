@@ -1,3 +1,3 @@
 # acmu
 
-acmu.ru excercizes in Go
+http://acmu.ru/?main=tasks excercizes in Go
