@@ -17,17 +17,20 @@ func main() {
 	var odd []string
 
 	for i := 0; i < length; i++ {
-		num := strconv.Atoi(strings.Trim(stringsArray[i], "\t \r"))
+		num, _ := strconv.Atoi(strings.Trim(stringsArray[i], "\t \r"))
 		if num%2 == 0 {
-			even = add(even, fmt.Sprintf("%d", ))
+			even = append(even, fmt.Sprintf("%d", num))
 		} else {
-
+			odd = append(odd, fmt.Sprintf("%d", num))
 		}
 	}
-
-	var result int
-	for i := 0; i <= n; i++ {
-		result += i
+	var result string = "YES"
+	if len(odd) > len(even) {
+		result = "NO"
 	}
-	ioutil.WriteFile("output.txt", []byte(fmt.Sprintf("%d", result)), 0)
+
+	output := strings.Replace(fmt.Sprintf("%v\n%v\n%s\n", odd, even, result), "[", "", 2)
+	output = strings.Replace(output, "]", "", 2)
+
+	ioutil.WriteFile("output.txt", []byte(output), 0)
 }
