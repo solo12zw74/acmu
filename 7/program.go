@@ -27,10 +27,8 @@ func max(a, b string) string {
 		for i := 0; i < la; i++ {
 			if a[i] > b[i] {
 				return a
-			} else {
-				return b
 			}
 		}
 	}
-	return a
+	return b
 }
