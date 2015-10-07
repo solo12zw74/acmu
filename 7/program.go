@@ -1,16 +1,21 @@
 package main
 
 import (
-	"io/ioutil"
-	"strings"
+	"fmt"
+	"os"
 )
 
 func main() {
-	content, _ := ioutil.ReadFile("input.txt")
-	lines := strings.Split(string(content), "\n")
-	numbers := strings.Split(strings.Trim(lines[0], "\t \r"), " ")
-	var output = max(max(numbers[0], numbers[1]), numbers[2])
-	ioutil.WriteFile("output.txt", []byte(output), 0)
+	input, _ := os.Open("input.txt")
+	var a, b, c string
+	_, _ = fmt.Fscanf(input, "%s %s %s\n", &a, &b, &c)
+	input.Close()
+
+	output, _ := os.Create("output.txt")
+	var result = max(max(a, b), c)
+	output.WriteString(result + "\n")
+	output.Close()
+
 }
 
 func max(a, b string) string {
